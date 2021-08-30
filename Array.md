@@ -1,14 +1,14 @@
-# Array
-  ## filter
+- # Array
+  - ## filter
   
-  ## find
+  - ## find
   
-  ## push
+  - ## push
   
-  ## concat
+  - ## concat
   
-  ## map
+  - ## map
   
-  ## sum
+  - ## sum
   
-  ## every
+  - ## every
