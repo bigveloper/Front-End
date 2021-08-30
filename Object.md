@@ -1,6 +1,6 @@
 - # Object(객체)
-  - Javascript 는 객체를 기반으로 하는 Script 언어이다. 그리고 Javascript 를 이루고 있는 거의 대부분은 Object(객체)이다.
-  - Object(객체)란 여러 속성을 하나의 변수에 저장할 수 있도록 해주는 Data Type(데이터 타입) 이며, Key 와 Value 구조로 되어 있다.
+ - Javascript 는 객체를 기반으로 하는 Script 언어이다. 그리고 Javascript 를 이루고 있는 거의 대부분은 Object(객체)이다.
+ - Object(객체)란 여러 속성을 하나의 변수에 저장할 수 있도록 해주는 Data Type(데이터 타입) 이며, Key 와 Value 구조로 되어 있다.
 - ## 객체의 특징
  1. Object(객체)는 중괄호 표기 { } 를 이용하여 생성한다.
  2. Object(객체)는 각각 Key 와 Value 구조로 입력한다.
