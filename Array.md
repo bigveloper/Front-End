@@ -66,6 +66,8 @@ const names = ['호순', '용순', '삼순', '사순', '오순'];             //
   
   - ## every
 
+  - ## reduce 
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 - 참고<br>
 https://velog.io/@surim014<br>
