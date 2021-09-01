@@ -196,9 +196,8 @@ arr.push('용순');
 console.log(arr);
 
 // [ '호순', '한순', '의순', '용순' ]
-
-//-------------------------------------------
-
+```
+```javascript
 const arr = ['호순', '한순'];
 arr.push({age: 36, job: 'developer'});
 arr.push({age: 36, job: 'CEO'});
@@ -208,11 +207,30 @@ arr.push(5678);
 console.log(arr);
 
 // [ '호순', '한순', { age: 36, job: 'developer' }, { age: 36, job: 'CEO' }, 1234, 5678 ]
-
 ```
 `Object(객체)` 도, `Number(숫자)` 도 Array(배열) 안으로 기존 `요소` 끝에서 부터 순서대로 잘 추가 되었다.
 
   - ## concat
+  - concat() 메소드는 배열이나, 값들을 기존의 배열에 `합쳐서 새로운 배열` 로 반환 한다.
+```javascript
+const arrNew = ['호순'];
+const arr1 = [{age: 36}];
+const arr2 = ['한순']
+const arr3 = [{age: 36}];
+const arr4 = [1, 2, 3, 4];
+const arr5 = [5, 6, 7, 8];
+
+const newArr = arrNew.concat(arr1, arr2, arr3, arr4, arr5);
+console.log(newArr);
+console.log(arrNew);
+console.log(arr1);
+
+// [ '호순', { age: 36 }, '한순', { age: 36 }, 1, 2, 3, 4, 5, 6, 7, 8 ]
+// [ '호순' ]
+// [ { age: 36 } ]
+```
+각 배열이 들어 있는 변수를 concat() 메소드를 통해 합쳐주게 되니, Object(객체), String(문자), Number(숫자) 상관없이 합쳐져 번환 된다.<br>
+concat() 안에 변수명의 순서대로 합쳐지며, 원래 변수는 손상되지 않는다.
       
   - ## some
   
