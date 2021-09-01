@@ -175,7 +175,7 @@ const returnArray = testArray.map(function(currentValue, index, array){
 추후 더 이해하기 쉽도록 업데이트 하겠다.
  
   - ## push
-   - push 메소드는 Array(배열) 의 끝에 `요소`를 `추가` 한다.<br>
+   - push 메소드는 Array(배열) 요소 끝에 `요소`를 `추가` 한다.<br>
 empty Array 에 내용을 추가할 수 있다.
 
 ```javasrript
@@ -230,18 +230,27 @@ console.log(arr1);
 // [ { age: 36 } ]
 ```
 각 배열이 들어 있는 변수를 concat() 메소드를 통해 합쳐주게 되니, Object(객체), String(문자), Number(숫자) 상관없이 합쳐져 번환 된다.<br>
-concat() 안에 변수명의 순서대로 합쳐지며, 원래 변수는 손상되지 않는다.
+concat() 안에 변수명의 순서대로 합쳐지며, 기존 변수의 요소는 손상되지 않는다.
       
   - ## some
-  
+   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. 조건에 만족하면 True 를 반대는 False 를 반환 한다.
+   - 요소들 중 하나라도 True 가 발생하면 True 를 반환 하고 검사는 중단 된다.
+   - 기존 배열의 요소들의 손상은 없다.
+   - OR 개념 이다.
+ 
   - ## every
+   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. 조건에 만족하면 True 를 반대는 False 를 반환 한다.
+   - 요소들 중 하나라도 false 가 발생하면 false 를 반환 하고 검사는 중단 된다.
+   - 기존 배열의 요소들의 손상은 없다.
+   - AND 개념 이다.
 
   - ## reduce 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-- 참고<br>
+- 참조<br>
 https://velog.io/@surim014<br>
-https://helloworldjavascript.net/pages/190-array.html<br>
+https://niceman.tistory.com/<br>
 https://freestrokes.tistory.com/<br>
-https://aljjabaegi.tistory.com/
-
+https://aljjabaegi.tistory.com/<br>
+https://paperblock.tistory.com/<br>
+https://helloworldjavascript.net/pages/190-array.html<br>
