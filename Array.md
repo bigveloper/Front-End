@@ -175,7 +175,43 @@ const returnArray = testArray.map(function(currentValue, index, array){
 추후 더 이해하기 쉽도록 업데이트 하겠다.
  
   - ## push
-  
+   - push 메소드는 Array(배열) 의 끝에 `요소`를 `추가` 한다.<br>
+empty Array 에 내용을 추가할 수 있다.
+
+```javasrript
+const arr = [];
+arr.push(1);
+arr.push(2);
+
+console.log(arr);
+
+// [ 1, 2 ]
+```
+그리고, 다양하게 push() 메소드를 사용해 보자
+```javascript
+const arr = ['호순', '한순'];
+arr.push('의순');
+arr.push('용순');
+
+console.log(arr);
+
+// [ '호순', '한순', '의순', '용순' ]
+
+//-------------------------------------------
+
+const arr = ['호순', '한순'];
+arr.push({age: 36, job: 'developer'});
+arr.push({age: 36, job: 'CEO'});
+arr.push(1234);
+arr.push(5678);
+
+console.log(arr);
+
+// [ '호순', '한순', { age: 36, job: 'developer' }, { age: 36, job: 'CEO' }, 1234, 5678 ]
+
+```
+`Object(객체)` 도, `Number(숫자)` 도 Array(배열) 안으로 기존 `요소` 끝에서 부터 순서대로 잘 추가 되었다.
+
   - ## concat
       
   - ## some
