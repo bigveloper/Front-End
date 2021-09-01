@@ -171,7 +171,8 @@ const returnArray = testArray.map(function(currentValue, index, array){
 [ 1, 2, 3, 4, 5 ]
 [ 2, 4, 6, 8, 10 ]
 ```
-
+이 내용을 보고 이해 했으면 하는 바람이다. 나는 도움을 얻어 어느정도 이해 했지만...<br>
+추후 더 이해하기 쉽도록 업데이트 하겠다.
  
   - ## push
   
