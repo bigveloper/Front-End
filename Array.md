@@ -188,5 +188,6 @@ const returnArray = testArray.map(function(currentValue, index, array){
 - 참고<br>
 https://velog.io/@surim014<br>
 https://helloworldjavascript.net/pages/190-array.html<br>
-https://freestrokes.tistory.com/
+https://freestrokes.tistory.com/<br>
+https://aljjabaegi.tistory.com/
 
