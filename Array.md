@@ -178,7 +178,7 @@ const returnArray = testArray.map(function(currentValue, index, array){
   
   - ## concat
       
-  - ## sum
+  - ## some
   
   - ## every
 
