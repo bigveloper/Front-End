@@ -8,7 +8,7 @@ const object = [ {name: '호순'}, {name: '용순'}, {name: '삼순'} ]; // Obje
 const mixed = [ 1, '호순', {name: '용순'}, null} ]; // 숫자, 문자, 객체, null 도 Array 안에 담을 수 있다.
 ```
  - Array(배열) 안에 들어있는 값들을 `요소`(element, item, etc) 라고 한다.<br>
- - Array(배열)의 값은 어떤 값이라도 Array(배열)의 요소로 추가할 수 있고, `type` 이 다른 값들도 함께 담을 수 있다.
+ - Array(배열)의 값은 어떤 값이라도 Array(배열)의 요소로 추가할 수 있고, `type` 이 다른 값들도 함께 담을 수 있다.<br>
 
 - ## Array(배열)의 특징
  - Array(배열)은 번호를 가진 인덱스를 갖는 특별한 유형의 `객체` 이다. (객체 지만, 객체 라고 하기엔 `접근방법` 자체가 __다르다__.) 
@@ -35,24 +35,24 @@ names.first;
  ```
 - ## Array(배열) 과 Object(객체) 의 차이점
  - Array(배열)은 숫자로 이루어진 index(인덱스)를 사용한다.
- - Object(객체)는 이름으로 이루어진 index(인덱스)를 사용한다.
+ - Object(객체)는 이름으로 이루어진 index(인덱스)를 사용한다.<br>
  
 - ## Array(배열) 과 Object(객체) 의 각각 사용시기
  - Javascript 는 Array(배열) 에서 이름으로 된 index(인덱스)를 지원하지 않는다.
  - 요소(`배열 안의 값`) 이름이 `String(문자열)`이 되도록 하려면 `Object(객체)`를 사용 한다.
  - 요소 이름을 `Number(숫자)` 로 하려면 `Array(배열)` 을 사용 한다.
- - 요소들의 `정렬` 이 필요할 경우 `Array(배열)` 을 사용한다.
+ - 요소들의 `정렬` 이 필요할 경우 `Array(배열)` 을 사용한다.<br>
 
 - ## Array(배열) 사용시 주의 할 점
 ```javascript
 const names = new Array('호순', '용순', '삼순', '사순', '오순');    // X
 const names = ['호순', '용순', '삼순', '사순', '오순'];             // O
 ```
-   - 생성자 `new Array()` 보다 대괄호 `[ ]` 를 사용하자
+   - 생성자 `new Array()` 보다 대괄호 `[ ]` 를 사용하자<br>
 
 - ## Array(배열) 을 확인하는 방법
 
-- ## Array(배열) 고차 함수
+- ## Array(배열) 함수들
  - ### filter
   - filter 메소드는 주어진 함수의 내용에 해당하는 모든 요소를 모아 `새로운 배열`로 반환 한다.
 ```javascript
@@ -172,9 +172,9 @@ const returnArray = testArray.map(function(currentValue, index, array){
 [ 2, 4, 6, 8, 10 ]
 ```
 이 내용을 보고 이해 했으면 하는 바람이다. 나는 도움을 얻어 어느정도 이해 했지만...<br>
-추후 더 이해하기 쉽도록 업데이트 하겠다.
+추후 더 이해하기 쉽도록 업데이트 하겠다.<br>
  
-  - ## push
+  - ### push
    - push 메소드는 Array(배열) 요소 끝에 `요소`를 `추가` 한다.<br>
 empty Array 에 내용을 추가할 수 있다.
 
@@ -208,9 +208,9 @@ console.log(arr);
 
 // [ '호순', '한순', { age: 36, job: 'developer' }, { age: 36, job: 'CEO' }, 1234, 5678 ]
 ```
-`Object(객체)` 도, `Number(숫자)` 도 Array(배열) 안으로 기존 `요소` 끝에서 부터 순서대로 잘 추가 되었다.
+`Object(객체)` 도, `Number(숫자)` 도 Array(배열) 안으로 기존 `요소` 끝에서 부터 순서대로 잘 추가 되었다.<br>
 
-  - ## concat
+  - ### concat
   - concat() 메소드는 배열이나, 값들을 기존의 배열에 `합쳐서 새로운 배열` 로 반환 한다.
 ```javascript
 const arrNew = ['호순'];
@@ -230,21 +230,57 @@ console.log(arr1);
 // [ { age: 36 } ]
 ```
 각 배열이 들어 있는 변수를 concat() 메소드를 통해 합쳐주게 되니, Object(객체), String(문자), Number(숫자) 상관없이 합쳐져 번환 된다.<br>
-concat() 안에 변수명의 순서대로 합쳐지며, 기존 변수의 요소는 손상되지 않는다.
+concat() 안에 변수명의 순서대로 합쳐지며, 기존 변수의 요소는 손상되지 않는다.<br>
       
-  - ## some
-   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. 조건에 만족하면 True 를 반대는 False 를 반환 한다.
-   - 요소들 중 하나라도 True 가 발생하면 True 를 반환 하고 검사는 중단 된다.
+  - ### some
+   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. `조건에 만족하면 True` 를 `반대는 False` 를 반환 한다.
+   - 요소들 중 `하나라도 True` 가 발생하면 `True` 를 반환 하고 `검사는 중단` 된다.
    - 기존 배열의 요소들의 손상은 없다.
-   - OR 개념 이다.
- 
-  - ## every
-   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. 조건에 만족하면 True 를 반대는 False 를 반환 한다.
-   - 요소들 중 하나라도 false 가 발생하면 false 를 반환 하고 검사는 중단 된다.
-   - 기존 배열의 요소들의 손상은 없다.
-   - AND 개념 이다.
+   - `OR` 개념 이다.
+```javascript
+const users = [
+    {name: '일순이', age: 20},
+    {name: '이순이', age: 22},
+    {name: '삼순이', age: 35},
+    {name: '사순이', age: 28},
+    {name: '오순이', age: 45}
+];
 
-  - ## reduce 
+const result = users.some(user => {
+    return user.age <= 25
+});
+
+console.log(result);
+
+// true
+```
+age 가 25 아래이거나 같은 사람도 있고 아닌 사람도 있으나, 같은 사람이 있으니 나머지는 신경쓰지 않고 `True` 를 반환 했다.<br>
+
+  - ### every
+   - some() 메소드는 Array(배열)의 내부 요소를 검사한다. `모든 조건에 만족하면 True` 를 `반대는 False` 를 반환 한다.
+   - 요소들 중 `하나라도 false` 가 발생하면 `false` 를 반환 하고 `검사는 중단` 된다.
+   - 기존 배열의 요소들의 손상은 없다.
+   - `AND` 개념 이다.
+```javascript
+const users = [
+    {name: '일순이', age: 20},
+    {name: '이순이', age: 22},
+    {name: '삼순이', age: 35},
+    {name: '사순이', age: 28},
+    {name: '오순이', age: 45}
+];
+
+const result = users.every(user => {
+    return user.age <= 25
+});
+
+console.log(result);
+
+// false
+```
+age 가 25 아래이거나 같은 사람도 있고 아닌 사람도 있으나, 아닌 사람이 있으니 나머지는 신경쓰지 않고 `false` 를 반환 했다.<br>
+
+  - ### reduce 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 - 참조<br>
