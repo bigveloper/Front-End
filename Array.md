@@ -133,6 +133,45 @@ console.log(mapNum);
 ```
 변수 numbers 안에 Array(배열) 로 담은 숫자로 된 요소들을 map 메소드 안 x 에 담고 화살표 함수를 통해<br>
 곱하기 2 를 각각 하여 `새로운 배열`로 반환 하였다. 여기서 우리가 더 정확히 알아야 할 부분이 있다.<br>
+<br>
+map 메소드는 callbackFunction 을 실행한 결과를 가지고 새로운 배열을 만들 때 사용한다.
+`array.map(callbackFunction(currentValue, index, array), thisArg)`
+여기서 보면,<br>
+callbackFunction 은 currentValue, index, array 3개의 매개변수를 갖는다.<br>
+currentValue : 배열 내 현재 값<br>
+index : 배열 내 현재 값의 인덱스<br>
+array : 현재 배열<br><br>
+
+예를 들어보자면,
+```javascript
+const testArray = [1,2,3,4,5];
+const returnArray = testArray.map(function(currentValue, index, array){
+  console.log(currentValue);
+  console.log(index);
+  console.log(array);
+    return currentValue*2;
+ });
+    console.log(returnArray);
+    
+// 결과
+1
+0
+[ 1, 2, 3, 4, 5 ]
+2
+1
+[ 1, 2, 3, 4, 5 ]
+3
+2
+[ 1, 2, 3, 4, 5 ]
+4
+3
+[ 1, 2, 3, 4, 5 ]
+5
+4
+[ 1, 2, 3, 4, 5 ]
+[ 2, 4, 6, 8, 10 ]
+```
+
  
   - ## push
   
