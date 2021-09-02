@@ -45,4 +45,6 @@ React 의 경우에는 useState 라는 Hook 을 통해서 state 를 사용하는
 `기존요소를 변경하지 않는` 메소드를 사용하는 것이 좋다.(성능을 개선할 때 편하고 좋다.)<br>
 <br>
 물론, 꼭 이렇게 해야 한다. 는 아니다.
-      
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+- 참조<br>
+https://jindev-t.tistory.com/
