@@ -44,7 +44,7 @@ React 의 경우에는 useState 라는 Hook 을 통해서 state 를 사용하는
 `push()` 와 같은 `기존 요소를 변경`하는 메소드는 사용하지 않는 것이 좋다. `concat()` 처럼 새로운 요소를 추가 할때,<br>
 `기존요소를 변경하지 않는` 메소드를 사용하는 것이 좋다.(성능을 개선할 때 편하고 좋다.)<br>
 <br>
-물론, 꼭 이렇게 해야 한다. 는 아니다.
+물론, 꼭 이렇게 해야 한다. 는 아니다. 개발을 하다보면 여러 상황에 맞춰 메소드를 써야 한다. 방법은 많다. 우리는 조금 더 논리적이고 합리적인 코드를 찾아 사용할 뿐..
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 - 참조<br>
 https://jindev-t.tistory.com/
