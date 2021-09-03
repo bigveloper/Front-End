@@ -130,11 +130,12 @@ const ToDoInsert = ({onInsert}) => {
 
 export default ToDoInsert;
 ```
+ - ToDoInsert 는 새로운 할 일을 입력하고 추가할 수 있게 해주는 component 이다.
  - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
  - 먼저 input 태그에서 "할 일"(값) 이 입력되면 그 값을 useState 를 통해 value 에 입력해 주게 된다. 그 후에 추가버튼 을 누르게 되면<br> 
    onSubmit event 가 실행이 되는데, useCallback 이라는 Hook 을 통하여 실행되는 onSubmit 메소드를 살펴보게 되면 onInsert 로<br> 
    input 태그에서 변경된 값을 넣어주고 setValue 값으로는 아무것도 넣어주지 않았다. 그러면 어떻게 될까? onChnage 에서 입력된 값<br>
-   결국 "할 일"은 이제 화면에서 보여지게 될 것이고, Input 태그 안은 초기화 된다.<br>
+   결국 "할 일"은 화면에서 보여지게 될 것이고, Input 태그 안은 초기화 된다.<br>
    
 ### 3. ToDoListItem
 ```javascript
@@ -161,6 +162,8 @@ const ToDoListItem = ({todo, onRemove, onToggle}) => {
 
 export default ToDoListItem;
 ```
+- ToDoListItem 은 각 할일 항목에 대한 정보를 보여주는 component 이다.
+
 ### 4. ToDoList
 ```javascript
 import React from 'react';
@@ -179,7 +182,11 @@ const ToDoList = ({todos, onRemove, onToggle}) => {
 export default ToDoList;
 ```
 
-
+- 추후에 지속적으로 업데이트 하겠지만, ToDoList 를 하면서 잡은 React 혹은 SAP 개념 으로는,<br>
+  1. component 들로 이루어져 있다.
+  2. 각 component 는 각자의 할일이 주어져 있다.
+  3. component 가 주어진 일을 하기 위해선, 데이터가 필요한데 그것이 `prop` 이다.
+  4. `prop` 이 useState 를 거치면서 입력, 수정, 삭제, 토글(checked) 의 기능까지 업데이트 한다. 
 
 
 
