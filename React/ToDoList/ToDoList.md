@@ -76,26 +76,46 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
    계속 살펴보다 보니, 하나의 변수의 값이 확인하고 업데이트 하는 기능으로 이해가 되었다.<br>
    변수명이 조금 이상하다. [todos, setTodos] 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는<br>
    todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 업데이트 해주는 기능을 가진 메소드 그것이<br>
-   useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.
- - 
+   useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.<br>
+ - 위 내용에 보면 useState([ Object(객체) ]); Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,<br>
+   Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까?? <br>
+   id 는 To 알아보기로 하자
    
 
 ### 2. TodoInsert
 ```javascript
-import React from 'react';
-import ToDoListItem from './ToDoListItem';
+import React, {useState, useCallback} from 'react';
+import {MdAdd} from 'react-icons/md';
+import './ToDoInsert.scss';
 
-const ToDoList = ({todos, onRemove, onToggle}) => {
+const ToDoInsert = ({onInsert}) => {
+    const [value, setValue] = useState('');
+
+    const onChange = useCallback((e) => {
+        setValue(e.target.value);
+    }, []);
+    
+    const onSubmit = useCallback(
+        (e) => {
+            onInsert(value);
+            setValue('');
+
+            e.preventDefault(); // 브라우저 새로고침/재로드 방지를 위해 사용
+        },
+        [onInsert, value]
+    );
+    
     return (
-        <div className="ToDoList">
-            {todos.map((todo)=> (
-                <ToDoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle} />
-            ))}
-        </div>
+        <form className="ToDoInsert" onSubmit={onSubmit}>
+            <input placeholder="할일을 입력하세요." value={value} onChange={onChange} />
+            <button type="submit" onSubmit={onSubmit}>
+                <MdAdd />
+            </button>
+        </form>
     );
 };
 
-export default ToDoList;
+export default ToDoInsert;
 ```
 ### 3. ToDoListItem
 ```javascript
