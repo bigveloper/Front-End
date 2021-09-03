@@ -87,10 +87,14 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
    이미 id 값이 3 번까지 들어가 있기 때문에 다음에 들어오는 id 값은 4 번 으로 시작하겠다는 뜻이다. 일단은 여기까지만 알자.<br><br>
    
 2) useCallback
- 
- 
-   
-
+ - useCallback 은 특정 메소드를 새로 만들지 않고 재사용하고 싶을때 사용하게 됩니다.
+ - 이 코드에서 설명하자면 ToDoInsert component 도 이해하고 있어야 하니 내용을 살펴보면 좋겠다.
+ - 여기서 useCallback 의 값으로 text 가 들어오게 된다. 그 내용은 ToDoInsert 의 return 부분부터 살펴보자면<br>
+   <input /> 내부에 할 일에 대한 내용을 입력하여 onChange Event 가 발생하게 되면 todo 라는 객체 안의 요소처럼<br>
+   id, text, checked 으로 todos 안에 `concat` 곧 합쳐지게 되는 것이다. 결국 객체가 합쳐지는 것이지만 요소가<br>
+   위 3가지로 되어 있다는 것 그리고 나서는 nextId 변수 안의 값은 1을 올리게 된다.<br>
+   ToDoInsert 에서 좀 더 설명하도록 하겠다.<br>
+    
 ### 2. ToDoInsert
 ```javascript
 import React, {useState, useCallback} from 'react';
@@ -126,6 +130,12 @@ const ToDoInsert = ({onInsert}) => {
 
 export default ToDoInsert;
 ```
+ - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
+ - 먼저 input 태그에서 "할 일"(값) 이 입력되면 그 값을 useState 를 통해 value 에 입력해 주게 된다. 그 후에 추가버튼 을 누르게 되면<br> 
+   onSubmit event 가 실행이 되는데, useCallback 이라는 Hook 을 통하여 실행되는 onSubmit 메소드를 살펴보게 되면 onInsert 로<br> 
+   input 태그에서 변경된 값을 넣어주고 setValue 값으로는 아무것도 넣어주지 않았다. 그러면 어떻게 될까? onChnage 에서 입력된 값<br>
+   결국 "할 일"은 이제 화면에서 보여지게 될 것이고, Input 태그 안은 초기화 된다.<br>
+   
 ### 3. ToDoListItem
 ```javascript
 import React from 'react';
@@ -196,7 +206,11 @@ export default ToDoList;
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-https://codecrafting.tistory.com/
+- 참조<br>
+https://codecrafting.tistory.com/<br>
+https://gist.github.com/ninanung<br>
+https://react.vlpt.us/<br>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 이 내용은 추후에 공부하기로 하자
 - # ToDo List
