@@ -163,6 +163,7 @@ const ToDoListItem = ({todo, onRemove, onToggle}) => {
 export default ToDoListItem;
 ```
 - ToDoListItem 은 각 할일 항목에 대한 정보를 보여주는 component 이다.
+- 
 
 ### 4. ToDoList
 ```javascript
@@ -181,11 +182,13 @@ const ToDoList = ({todos, onRemove, onToggle}) => {
 
 export default ToDoList;
 ```
+- 
 
 - 추후에 지속적으로 업데이트 하겠지만, ToDoList 를 하면서 잡은 React 혹은 SAP 개념 으로는,<br>
   1. component 들로 이루어져 있다.
   2. 각 component 는 각자의 할일이 주어져 있다.
-  3. component 가 주어진 일을 하기 위해선, 데이터가 필요한데 그것이 `prop` 이다.
+  3. component 가 주어진 일을 하기 위해선, 데이터가 필요한데 그것이 `prop` 이다. 즉, `prop`의 값으로<br>
+     component 들이 유기적으로 작업한다.(import 는 당연히 해야 한다.)
   4. `prop` 이 useState 를 거치면서 입력, 수정, 삭제, 토글(checked) 의 기능까지 업데이트 한다. 
 
 
