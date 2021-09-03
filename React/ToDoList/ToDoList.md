@@ -66,6 +66,20 @@ function App() {
 
 export default App;
 ```
+App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는 component 들과 package 라고 해도 절대 과장이 아닐 것이다.<br>
+하나하나 알아가보자. 먼저는,<br>
+1) useState<br>
+ - React 에서는 Hook 이라고 하는 기능이다.<br>
+   최상단 import React,{useCallback, useRef, useState} from "react"; 에 useState 가 보여진다. 사용하고 싶을때는<br>
+   이렇게 사용하는 것이다.<br>
+   function 안에서 변수로 const [todos, setTodos] = useState([내용생략]); 이라고 선언했다. 처음에는 내용이 어려워<br>
+   계속 살펴보다 보니, 하나의 변수의 값이 확인하고 업데이트 하는 기능으로 이해가 되었다.<br>
+   변수명이 조금 이상하다. [todos, setTodos] 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는<br>
+   todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 업데이트 해주는 기능을 가진 메소드 그것이<br>
+   useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.
+ - 
+   
+
 ### 2. TodoInsert
 ```javascript
 import React from 'react';
