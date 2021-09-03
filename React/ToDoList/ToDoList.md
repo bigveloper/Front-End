@@ -79,10 +79,12 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
    useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.<br>
  - 위 내용에 보면 useState([ Object(객체) ]); Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,<br>
    Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까?? <br>
-   id 는 To 알아보기로 하자
+   id 는 ToDoListItem 부분에서 더 알아보기로 하자. 위아래로 왔다갔다 해야 하겠다.<br>
+ - 
+ 
    
 
-### 2. TodoInsert
+### 2. ToDoInsert
 ```javascript
 import React, {useState, useCallback} from 'react';
 import {MdAdd} from 'react-icons/md';
