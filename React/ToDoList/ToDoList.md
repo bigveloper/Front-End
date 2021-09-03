@@ -75,7 +75,7 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
    function 안에서 변수로 `const [todos, setTodos] = useState([내용생략]);` 이라고 선언했다. 처음에는 내용이 어려워<br>
    계속 살펴보다 보니, 하나의 변수로 값을 확인하고 업데이트 하는 기능으로 이해가 되었다.<br>
    변수명이 조금 이상하다. `[todos, setTodos]` 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는<br>
-   todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 업데이트 해주는 기능을 가진 메소드 그것이<br>
+   todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 해주는 기능을 가진 메소드 그것이<br>
    useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.<br>
  - 위 내용에 보면 `useState([ Object(객체) ]);` Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,<br>
    Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까?? <br>
@@ -92,7 +92,7 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
  - 여기서 useCallback 의 값으로 text 가 들어오게 된다. 그 내용은 ToDoInsert 의 return 부분부터 살펴보자면<br>
    <input /> 내부에 할 일에 대한 내용을 입력하여 onChange Event 가 발생하게 되면 todo 라는 객체 안의 요소처럼<br>
    id, text, checked 으로 todos 안에 `concat` 곧 합쳐지게 되는 것이다. 결국 객체가 합쳐지는 것이지만 요소가<br>
-   위 3가지로 되어 있다는 것 그리고 나서는 nextId 변수 안의 값은 1을 올리게 된다.<br>
+   위 3가지로 되어 있다는 것을 기억하고 그리고 나서는 nextId 변수 안의 값은 1을 올리게 된다.<br>
    ToDoInsert 에서 좀 더 설명하도록 하겠다.<br>
     
 ### 2. ToDoInsert
