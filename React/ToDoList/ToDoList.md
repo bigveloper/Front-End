@@ -13,6 +13,164 @@
 이 부분을 기본적으로 생각하고 작업에 들어간다.<br>
 모든 작업은 React 기본 프로젝트를 구성 할 줄 안다는 가정하에 설명 된다.<br>
 
+- ## 개발을 시작해 보자
+
+### 1. App.js
+```javascript
+import React,{useCallback, useRef, useState} from "react";
+import ToDoTemplate from "./components/ToDoTemplate";
+import ToDoInsert from "./components/ToDoInsert";
+import ToDoList from "./components/ToDoList";
+
+function App() {
+    const [todos, setTodos] = useState([
+      // 객체는 key 와 value로 이루어진다.
+      {
+          id: 1,
+          text: '리액트의 기초 알아보기',
+          checked: true,
+      },
+      {
+        id: 2,
+        text: '컴포넌트 스타일링 하기',
+        checked: true,
+      },
+      {
+        id: 3,
+        text: '일정관리 앱 만들어 보기',
+        checked: true,
+      },
+    ]);
+
+    const nextId = useRef(4);
+
+    const onInsert = useCallback(
+      (text) => {
+          const todo = {
+              id: nextId.current,
+              text,
+              checked: false,
+          };
+          setTodos(todos.concat(todo));
+          nextId.current += 1;
+      },
+      [todos]
+    );
+    return (
+    <ToDoTemplate>
+      <ToDoInsert onInsert={onInsert} />
+      <ToDoList todos={todos} onRemove={onRemove} onToggle={onToggle} />      
+    </ToDoTemplate>
+  );
+}
+
+export default App;
+```
+### 2. TodoInsert
+```javascript
+import React from 'react';
+import ToDoListItem from './ToDoListItem';
+
+const ToDoList = ({todos, onRemove, onToggle}) => {
+    return (
+        <div className="ToDoList">
+            {todos.map((todo)=> (
+                <ToDoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle} />
+            ))}
+        </div>
+    );
+};
+
+export default ToDoList;
+```
+### 3. ToDoListItem
+```javascript
+import React from 'react';
+import { MdCheckBoxOutlineBlank, MdCheckBox, MdRemoveCircleOutline } from 'react-icons/md';
+import cn from 'classnames';
+import './ToDoListItem.scss';
+
+const ToDoListItem = ({todo, onRemove, onToggle}) => {
+    const {id, text, checked} = todo;
+
+    return(
+        <div className="ToDoListItem">
+            <div className={cn('checkBox', {checked})} onClick={() => onToggle(id)}>
+                {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+                <div className="text">{text}</div>
+            </div>
+            <div className="remove" onClick={() => onRemove(id)}>
+                <MdRemoveCircleOutline />
+            </div>
+        </div>
+    );
+};
+
+export default ToDoListItem;
+```
+### 4. ToDoList
+```javascript
+import React from 'react';
+import ToDoListItem from './ToDoListItem';
+
+const ToDoList = ({todos, onRemove, onToggle}) => {
+    return (
+        <div className="ToDoList">
+            {todos.map((todo)=> (
+                <ToDoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle} />
+            ))}
+        </div>
+    );
+};
+
+export default ToDoList;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+https://codecrafting.tistory.com/
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+이 내용은 추후에 공부하기로 하자
+- # ToDo List
+## 1. Todo List 를 만들 때 생각 해야 되는 것
+ - ToDo List 에는 `입력`, `검색`,`수정`, `삭제` 의 기능이 다 있다. 곧 우리가 알고 있는 `C R U D` 의 기능이 다 있다.
+ - 추가로 할 일을 완료했을 때 check 하는 checkBox 의 기능도 구현 할 수 있다.
+
+## 2. ToDo List 의 기본 기능
+ - ToDo Item 입력(추가)
+ - ToDo Item 수정
+ - ToDo Item 삭제
+ - ToDo Item 완료 체크 및 체크 해제
+ - ToDo Item 완료 전체 목록 보기
+
+이 부분을 기본적으로 생각하고 작업에 들어간다.<br>
+모든 작업은 React 기본 프로젝트를 구성 할 줄 안다는 가정하에 설명 된다.<br>
+
 ## 3. 화면 구성 기획
  - 맨 위에 ToDo Item 을 입력(추가) 할 수 있는 창과 버튼을 만든다.
  - 아래 에는 ToDo Item 목록이 존재한다. 목록은 두개의 그룹으로 나눌 것이다.
