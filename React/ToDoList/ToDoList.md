@@ -72,15 +72,22 @@ App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는
  - React 에서는 Hook 이라고 하는 기능이다.<br>
    최상단 import React,{useCallback, useRef, useState} from "react"; 에 useState 가 보여진다. 사용하고 싶을때는<br>
    이렇게 사용하는 것이다.<br>
-   function 안에서 변수로 const [todos, setTodos] = useState([내용생략]); 이라고 선언했다. 처음에는 내용이 어려워<br>
-   계속 살펴보다 보니, 하나의 변수의 값이 확인하고 업데이트 하는 기능으로 이해가 되었다.<br>
-   변수명이 조금 이상하다. [todos, setTodos] 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는<br>
+   function 안에서 변수로 `const [todos, setTodos] = useState([내용생략]);` 이라고 선언했다. 처음에는 내용이 어려워<br>
+   계속 살펴보다 보니, 하나의 변수로 값을 확인하고 업데이트 하는 기능으로 이해가 되었다.<br>
+   변수명이 조금 이상하다. `[todos, setTodos]` 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는<br>
    todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 업데이트 해주는 기능을 가진 메소드 그것이<br>
    useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.<br>
- - 위 내용에 보면 useState([ Object(객체) ]); Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,<br>
+ - 위 내용에 보면 `useState([ Object(객체) ]);` Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,<br>
    Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까?? <br>
    id 는 ToDoListItem 부분에서 더 알아보기로 하자. 위아래로 왔다갔다 해야 하겠다.<br>
- - 
+ - useState 의 요소로 Array(배열)을 사용 하지 않을 수도 있지만, ToDoList 기능에는 할일과 할일을 완료했을 때 체크 해주는 기능도<br>
+   함께 있어야 하다 보니 Object(객체) 로 만들어 Array(배열)의 요소로 만든 것이다.<br><br>
+   
+ - useState 의 값들로 id 값으로 보자면 3 번 까지 이미 들어가 있고 그 밑에 다른 nextId = useRef(4); 라고 선언 되었다.<br>
+   이미 id 값이 3 번까지 들어가 있기 때문에 다음에 들어오는 id 값은 4 번 으로 시작하겠다는 뜻이다. 일단은 여기까지만 알자.<br><br>
+   
+2) useCallback
+ 
  
    
 
