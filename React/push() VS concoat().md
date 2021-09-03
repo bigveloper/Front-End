@@ -2,7 +2,7 @@
   
   - ## push
    - push() 메소드는 Array(배열) 요소 끝에 `요소`를 `추가` 한다.<br>
-empty Array 에 내용을 추가할 수 있다.
+empty Array 에 요소를 추가할 수 있다.
 
 ```javascript
 const arr = [1];
