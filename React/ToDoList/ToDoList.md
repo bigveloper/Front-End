@@ -149,10 +149,12 @@ export default ToDoInsert;
 ```
  - ToDoInsert 는 새로운 할 일을 입력하고 추가할 수 있게 해주는 component 이다.
  - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
- - 먼저 input 태그에서 "할 일"(값) 이 입력되면 그 값을 useState 를 통해 value 에 입력해 주게 된다. 그 후에 추가버튼 을 누르게 되면  
-   onSubmit event 가 실행이 되는데, useCallback 이라는 Hook 을 통하여 실행되는 onSubmit 메소드를 살펴보게 되면 onInsert 로  
-   input 태그에서 변경된 값을 넣어주고 setValue 값으로는 아무것도 넣어주지 않았다. 그러면 어떻게 될까? onChnage 에서 입력된 값  
-   결국 "할 일"은 화면에서 보여지게 될 것이고, Input 태그 안은 초기화 된다.<br>
+ - 등록 버튼을 누르게 되면, onInsert() 함수가 호출된다. 당연히 기존 객체의 key 가 모두 포함 되어 있는 데이터 형태  
+   로 호출되어야 한다. id 에는 nextId 값을 넣고 text 에는 전달된 text 값을 그대로 넣는다. 그리고 checked 에는  
+   기본값으로 false 를 넣어준다.(=check 가 안되어 있는 상태) 그러면, 이제 만들어진 onInsert() 메소드를  
+   항목 추가버튼이 있는 component 인 ToDoInsert 의 props 로 전달한다.
+ - ToDoInsert 의 submit 버튼을 눌렀을 때 동작할 메소드 onSubmit 을 만들어 준다. 이 메소드가 호출되면 props 로  
+   받아온 onInsert() 메소드의 현재 value 값을 파라미터로 넣어서 호출하고, 현재 value 값을 초기화 한다.  
    
 ### 3. ToDoListItem
 ```javascript
