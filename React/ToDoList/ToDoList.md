@@ -180,7 +180,9 @@ const ToDoListItem = ({todo, onRemove, onToggle}) => {
 export default ToDoListItem;
 ```
 - ToDoListItem 은 각 할일 항목에 대한 정보를 보여주는 component 이다.
-- 
+- `classnames`를 사용하여 특정 `<div>` 를 제어 할 수 있다. 위에서 checkBox 의 클래스 값을 props 로 넘어오는 `checked` 로  
+  결정하고 있다. 이때, checked 의 값이 True 이면 <MdCheckBox /> 를, False 이면 <MdCheckBoxOutlineBlank /> 로 나타낸다.  
+  text 역시 마찬가지로 props 로 넘어 오는 데이터 이기 때문에 그대로 {text} 로 출력한다.
 
 ### 4. ToDoList
 ```javascript
