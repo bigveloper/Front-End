@@ -205,11 +205,16 @@ export default ToDoList;
 - 토글기능 (onToggle)
   - 삭제와 마찬가지로 ToDoListItem component 로 onToggle 메소드를 전달 한다.
     
+      
   - Javascript 배열의 map() 메소드는 반복되는 component 를 rendering 할 때 `필수적` 으로 사용되는 메소드 이다.
   - map() 메소드는 파라미터 로 전달된 메소드를 사용하여 Array(배열) 안의 각 요소를, 원하는 규칙에 따라 변환한 후 그 결과로 새로운  
     Array(배열)을 생성한다.  
 
   
+    
+      
+        
+        
 - 추후에 지속적으로 업데이트 하겠지만, ToDoList 를 하면서 정리한 React 혹은 SPA 개념 으로는,  
 1. component 들로 이루어져 있다.
 2. 각 component 는 각자의 할일이 주어져 있다.
