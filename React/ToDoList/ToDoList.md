@@ -139,7 +139,6 @@ const ToDoInsert = ({onInsert}) => {
 export default ToDoInsert;
 ```
  - ToDoInsert 는 새로운 할 일을 입력하고 추가할 수 있게 해주는 component 이다.
- - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
  - input 태그 안에서 값을 입력할 때마다, component state 인 value 값에 들어가도록 정의 되었다.
  - ToDoInsert 의 submit 버튼을 눌렀을 때 동작할 메소드 onSubmit 을 만들어 준다. 이 메소드가 호출되면 props 로  
    받아온 onInsert() 메소드의 현재 value 값을 파라미터로 넣어서 호출하고, 현재 value 값을 초기화 한다.  
@@ -211,12 +210,12 @@ export default ToDoList;
     Array(배열)을 생성한다.  
 
   
-- 추후에 지속적으로 업데이트 하겠지만, ToDoList 를 하면서 잡은 React 혹은 SAP 개념 으로는,  
-  1. component 들로 이루어져 있다.
-  2. 각 component 는 각자의 할일이 주어져 있다.
-  3. component 가 주어진 일을 하기 위해선, 데이터가 필요한데 그것이 `props` 이다. 즉, `props`의 값으로  
-     component 들이 유기적으로 작업한다.(각 component 들은 당연히 import 해야 한다.)
-  4. `prop` 이 useState 를 거치면서 입력, 수정, 삭제, 토글(checked) 의 기능까지 업데이트 한다. 
+- 추후에 지속적으로 업데이트 하겠지만, ToDoList 를 하면서 정리한 React 혹은 SPA 개념 으로는,  
+1. component 들로 이루어져 있다.
+2. 각 component 는 각자의 할일이 주어져 있다.
+3. component 가 주어진 일을 하기 위해선, 데이터가 필요한데 그것이 `props` 이다. 즉, `props`의 값으로  
+   component 들이 유기적으로 작업한다.(각 component 들은 당연히 import 해야 한다.)
+4. `props` 가 useState 를 거치면서 입력, 수정, 삭제, 토글(checked) 의 기능까지 업데이트 한다. 
 
 
 
