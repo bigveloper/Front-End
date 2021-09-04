@@ -97,7 +97,9 @@ export default App;
      같은 id 를 가진 항목을 todos Array(배열) 에서 지우는 메소드 이다.  
      (만약에 id : 1 을 지우고 싶다면 이 1 이 미포함 된 Array 를 return 한다. 즉 id : 2 , id : 3 return)
    - useState 를 이용하여 setTodos 를 호출하여 onRemove 메소드를 ToDoList 로 전달 한 후, ToDoListItem component 의  
-     props 로 추가한다.  
+     props 로 추가한다.
+ - 토글기능 (onToggle)
+   - 토글기능도 삭제기능과 꽤 비슷하다. App 에서 수정하는 메소드를 만들어서 ToDoList 에게 전달한 후 ToDoListItem 에 props 로 전달한다.
        
 ### 2. ToDoInsert
 ```javascript
@@ -166,6 +168,8 @@ const ToDoListItem = ({todo, onRemove, onToggle}) => {
 export default ToDoListItem;
 ```
 - ToDoListItem 은 각 할일 항목에 대한 정보를 보여주는 component 이다.
+- 삭제기능 (onRemove)
+  - onRemove 메소드를 호출 하여 인자로 id 값을 넣어준다. 
 - `classnames`를 사용하여 특정 `<div>` 를 제어 할 수 있다. 위에서 checkBox 의 클래스 값을 props 로 넘어오는 `checked` 로  
   결정하고 있다. 이때, checked 의 값이 True 이면 <MdCheckBox /> 를, False 이면 <MdCheckBoxOutlineBlank /> 로 나타낸다.  
   text 역시 마찬가지로 props 로 넘어 오는 데이터 이기 때문에 그대로 {text} 로 출력한다.
@@ -187,10 +191,12 @@ const ToDoList = ({todos, onRemove, onToggle}) => {
 
 export default ToDoList;
 ```
-- props 로 todos 배열을 받아왔다. 이것을 내장 메소드 map을 통하여 ToDoListItem 으로 이루어진 배열로 변환하여 rendering 했다.
-- map 을 이용하여 component 로 변환 할 때는 key props 를 전달 해 주어야 한다. 그리하여 todo 객체의 고유값 중 하나인 id를 전달해 주었다.  
-  그리고 ToDoListItem 에서 다룰 데이터를 통으로 props 를 전달한다.  
-    
+- 추가기능 (onInsert)
+  - props 로 todos 배열을 받아왔다. 이것을 내장 메소드 map을 통하여 ToDoListItem 으로 이루어진 배열로 변환하여 rendering 했다.
+  - map 을 이용하여 component 로 변환 할 때는 key props 를 전달 해 주어야 한다. 그리하여 todo 객체의 고유값 중 하나인 id를 전달해 주었다.  
+    그리고 ToDoListItem 에서 다룰 데이터를 통으로 props 를 전달한다.  
+- 삭제기능 (onRemove)
+  - ToDoListItem compnent 에서 onRemove 메소드를 불러낸 인자로 id 값을 담는다.
     
   - Javascript 배열의 map() 메소드는 반복되는 component 를 rendering 할 때 `필수적` 으로 사용되는 메소드 이다.
   - map() 메소드는 파라미터 로 전달된 메소드를 사용하여 Array(배열) 안의 각 요소를, 원하는 규칙에 따라 변환한 후 그 결과로 새로운  
