@@ -157,7 +157,7 @@ const ToDoListItem = ({todo, onRemove, onToggle}) => {
         <div className="ToDoListItem">
             <div className={cn('checkBox', {checked})} onClick={() => onToggle(id)}>
                 {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-                <div className="text">{text}</div>
+            <div className="text">{text}</div>
             </div>
             <div className="remove" onClick={() => onRemove(id)}>
                 <MdRemoveCircleOutline />
@@ -176,8 +176,8 @@ export default ToDoListItem;
   - onRemove 메소드를 호출 하여 인자로 id 값을 넣어준다. 
 - 토글기능 (onToggle)
   - checkBox class 의 div 를 클릭 할 때마다 onToggle 메소드를 해당 todo 의 id 를 인자로 주면서 호출하게 된다.  
-    그러면 App comonent 에서 메소드를 정의해준 대로 checkBox 의 값이 바뀌게 되면서 re-rendering 되고 ToDoListItem 에서도  
-    checked 의 값에 따라 checBox class 의 값이 바뀌게 되어 해당하는 UI 로 바뀌게 된다.
+    그러면 App component 에서 메소드를 정의해준 대로 checkBox 의 값이 바뀌게 되면서 re-rendering 되고 ToDoListItem 에서도  
+    checked 의 값에 따라 checkBox class 의 값이 바뀌게 되어 해당하는 UI 로 바뀌게 된다.
     
 ### 4. ToDoList
 ```javascript
