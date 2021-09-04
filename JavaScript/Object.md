@@ -111,15 +111,15 @@ yield
     - Boolean(new keyword로 정의된 경우)
     - 숫자(number) (new keyword로 정의된 경우)
     - 문자열(String) (new keyword로 정의된 경우) 
-    - Javascript 에서 원시값을 제외한 모든 Javascript 값은 객체 이다.<br>
+    - Javascript 에서 원시값을 제외한 모든 Javascript 값은 객체 이다.
        `` 
        원시값 : 어떤 특성 또는 방법이 없는 값
-       ``
-       <br>
+       ``  
+       
        ``
        기본 데이터 형식 : 원시 값을 갖는 데이터
-       ``
-       <br>
+       ``  
+       
 - #### 객체가 아닌 기본 데이터 유형
     - String
     - number
@@ -144,7 +144,7 @@ yield
     에서 내장 객체를 사용 할 때, 브라우저 마다 구성을 다르게 하는 경우가 있다. 그래서 Javascript 내장 객체와 따로 적어 두었다.
     하지만, 브라우저 내장 객체는 Javascript 엔진을 구동하는 하면서 build 가 되는 객체 들이다. 예 로는 `BOM` 과 `DOM` 이 있다.
     이 객체들은 Javascript 내장 객체가 구성이 되고 난 후에 구성이 된다.
-    <br>
+  
     ```
     BOM(Brouser Object Model 의 약자)
       - 브라우저에 대한 모든 내용을 담고있는 객체. 브라우저에 관련 된 내용 모두
