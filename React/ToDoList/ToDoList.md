@@ -82,7 +82,11 @@ export default App;
 ```
 App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는 component 들과 package 라고 해도 절대 과장이 아닐 것이다.  
 하나하나 알아가보자. 먼저는,  
-1) useState<br>
+ - todos Array(배열) 안에 들어 있는 객체의 Key 로 id , text(내용) , checked(완료여부) , 를 알려 주는 value 가 포함  
+   되어 있다. 이 Array(배열) 은 ToDoList 에 porps 로 전달 된다. ToDoList 에서 이 값을 받아오면, ToDoListItem 으로  
+   변환하여 rendering 하도록 설정할 것이다.  
+   
+1) useState  
  - React 에서는 Hook 이라고 하는 기능이다.  
    최상단 import React,{useCallback, useRef, useState} from "react"; 에 useState 가 보여진다. 사용하고 싶을때는  
    이렇게 사용하는 것이다.  
@@ -149,6 +153,7 @@ export default ToDoInsert;
 ```
  - ToDoInsert 는 새로운 할 일을 입력하고 추가할 수 있게 해주는 component 이다.
  - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
+ - input 태그 안에서 값을 입력할 때마다, component state 인 value 값에 들어가도록 정의 되었다.
  - 등록 버튼을 누르게 되면, onInsert() 함수가 호출된다. 당연히 기존 객체의 key 가 모두 포함 되어 있는 데이터 형태  
    로 호출되어야 한다. id 에는 nextId 값을 넣고 text 에는 전달된 text 값을 그대로 넣는다. 그리고 checked 에는  
    기본값으로 false 를 넣어준다.(=check 가 안되어 있는 상태) 그러면, 이제 만들어진 onInsert() 메소드를  
