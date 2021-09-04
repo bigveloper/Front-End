@@ -80,42 +80,25 @@ function App() {
 
 export default App;
 ```
-App.js 에서 사실 가장 중요한 부분을 꼽으라면 import 되어지는 component 들과 package 라고 해도 절대 과장이 아닐 것이다.  
-하나하나 알아가보자. 먼저는,  
- - todos Array(배열) 안에 들어 있는 객체의 Key 로 id , text(내용) , checked(완료여부) , 를 알려 주는 value 가 포함  
-   되어 있다. 이 Array(배열) 은 ToDoList 에 porps 로 전달 된다. ToDoList 에서 이 값을 받아오면, ToDoListItem 으로  
-   변환하여 rendering 하도록 설정할 것이다.  
-   
-1) useState  
- - React 에서는 Hook 이라고 하는 기능이다.  
-   최상단 import React,{useCallback, useRef, useState} from "react"; 에 useState 가 보여진다. 사용하고 싶을때는  
-   이렇게 사용하는 것이다.  
-   function 안에서 변수로 `const [todos, setTodos] = useState([내용생략]);` 이라고 선언했다. 처음에는 내용이 어려워  
-   계속 살펴보다 보니, 하나의 변수로 값을 확인하고 업데이트 하는 기능으로 이해가 되었다.  
-   변수명이 조금 이상하다. `[todos, setTodos]` 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는  
-   todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 해주는 기능을 가진 메소드 그것이  
-   useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.  
- - 위 내용에 보면 `useState([ Object(객체) ]);` Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,  
-   Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까??  
-   id 는 ToDoListItem 부분에서 더 알아보기로 하자. 위아래로 왔다갔다 해야 하겠다.  
- - useState 의 요소로 Array(배열)을 사용 하지 않을 수도 있지만, ToDoList 기능에는 할일과 할일을 완료했을 때 체크 해주는 기능도  
-   함께 있어야 하다 보니 Object(객체) 로 만들어 Array(배열)의 요소로 만든 것이다.  
-     
-     
-   
- - useState 의 값들로 id 값으로 보자면 3 번 까지 이미 들어가 있고 그 밑에 다른 nextId = useRef(4); 라고 선언 되었다.  
-   이미 id 값이 3 번까지 들어가 있기 때문에 다음에 들어오는 id 값은 4 번 으로 시작하겠다는 뜻이다. 일단은 여기까지만 알자.  
-     
-     
-2) useCallback
- - useCallback 은 특정 메소드를 새로 만들지 않고 재사용하고 싶을때 사용하게 됩니다.
- - 이 코드에서 설명하자면 ToDoInsert component 도 이해하고 있어야 하니 내용을 살펴보면 좋겠다.
- - 여기서 useCallback 의 값으로 text 가 들어오게 된다. 그 내용은 ToDoInsert 의 return 부분부터 살펴보자면  
-   <input /> 내부에 할 일에 대한 내용을 입력하여 onChange Event 가 발생하게 되면 todo 라는 객체 안의 요소처럼  
-   id, text, checked 으로 todos 안에 `concat` 곧 합쳐지게 되는 것이다. 결국 객체가 합쳐지는 것이지만 요소가  
-   위 3가지로 되어 있다는 것을 기억하고 그리고 나서는 nextId 변수 안의 값은 1을 올리게 된다.  
-   ToDoInsert 에서 좀 더 설명하도록 하겠다.  
-    
+ - 추가기능 (onInsert)
+   - todos Array(배열) 안에 들어 있는 객체의 Key 로 id , text(내용) , checked(완료여부) , 를 알려 주는 value 가 포함  
+     되어 있다. 이 Array(배열) 은 ToDoList 에 porps 로 전달 된다. ToDoList 에서 이 값을 받아오면, ToDoListItem 으로  
+     변환하여 rendering 하도록 설정할 것이다.  
+   - 등록 버튼을 누르게 되면, onInsert() 함수가 호출된다. 당연히 기존 객체의 key 가 모두 포함 되어 있는 데이터 형태  
+     로 호출되어야 한다. id 에는 nextId 값을 넣고 text 에는 전달된 text 값을 그대로 넣는다. 그리고 checked 에는  
+     기본값으로 false 를 넣어준다.(=check 가 안되어 있는 상태) 그러면, 이제 만들어진 onInsert() 메소드를  
+     항목 추가버튼이 있는 component 인 ToDoInsert 의 props 로 전달한다.
+   - useRef 메소드를 이용해 nextId 라는 변수에 4 를 초기화 시키고, 새로 등록된 할 일 객체의 id 로 활용 한다.
+ - 삭제기능 (onRemove)
+   - React component 에서 Array(배열) 의 불변성 을 지키면서 배열의 원소를 제거 할 때는, 내장 메소드 filter 를 사용하면 좋다.  
+     filter 메소드 에는 조건을 확인 해 주는 메소드를 파라미터로 넣어야 한다(조건문 필수). 그래서 반드시 boolean 값을 return 한다.  
+     Array(배열) 의 값이 조건문 에서 true 인 경우에만 새로운 Array(배열) 에 포함된다.
+   - filter 메소드를 사용하여 onRemove 메소드를 App component 에 작성 하였다. App component 에 id를 파라미터라 받아온 후  
+     같은 id 를 가진 항목을 todos Array(배열) 에서 지우는 메소드 이다.  
+     (만약에 id : 1 을 지우고 싶다면 이 1 이 미포함 된 Array 를 return 한다. 즉 id : 2 , id : 3 return)
+   - useState 를 이용하여 setTodos 를 호출하여 onRemove 메소드를 ToDoList 로 전달 한 후, ToDoListItem component 의  
+     props 로 추가한다.  
+       
 ### 2. ToDoInsert
 ```javascript
 import React, {useState, useCallback} from 'react';
@@ -154,13 +137,9 @@ export default ToDoInsert;
  - ToDoInsert 는 새로운 할 일을 입력하고 추가할 수 있게 해주는 component 이다.
  - App.js 에서 설명한 내용과 약간중복될 수 있지만, ToDoInsert 에 대한 내용을 살펴보자
  - input 태그 안에서 값을 입력할 때마다, component state 인 value 값에 들어가도록 정의 되었다.
- - 등록 버튼을 누르게 되면, onInsert() 함수가 호출된다. 당연히 기존 객체의 key 가 모두 포함 되어 있는 데이터 형태  
-   로 호출되어야 한다. id 에는 nextId 값을 넣고 text 에는 전달된 text 값을 그대로 넣는다. 그리고 checked 에는  
-   기본값으로 false 를 넣어준다.(=check 가 안되어 있는 상태) 그러면, 이제 만들어진 onInsert() 메소드를  
-   항목 추가버튼이 있는 component 인 ToDoInsert 의 props 로 전달한다.
  - ToDoInsert 의 submit 버튼을 눌렀을 때 동작할 메소드 onSubmit 을 만들어 준다. 이 메소드가 호출되면 props 로  
    받아온 onInsert() 메소드의 현재 value 값을 파라미터로 넣어서 호출하고, 현재 value 값을 초기화 한다.  
-   
+     
 ### 3. ToDoListItem
 ```javascript
 import React from 'react';
@@ -256,6 +235,37 @@ https://gist.github.com/ninanung<br>
 https://react.vlpt.us/<br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+1) useState  
+ - React 에서는 Hook 이라고 하는 기능이다.  
+   최상단 import React,{useCallback, useRef, useState} from "react"; 에 useState 가 보여진다. 사용하고 싶을때는  
+   이렇게 사용하는 것이다.  
+   function 안에서 변수로 `const [todos, setTodos] = useState([내용생략]);` 이라고 선언했다. 처음에는 내용이 어려워  
+   계속 살펴보다 보니, 하나의 변수로 값을 확인하고 업데이트 하는 기능으로 이해가 되었다.  
+   변수명이 조금 이상하다. `[todos, setTodos]` 라고 선언 되었다. 이 내용의 뜻은 todos 는 현재의 todos 값, setTodos 는  
+   todos 의 값을 업데이트 하는 기능을 한다. 결국 현재의 값과, 값을 업데이트를 해주는 기능을 가진 메소드 그것이  
+   useState 이다. 이 내용은 중요하니 따로 더 다루도록 하겠다.  
+ - 위 내용에 보면 `useState([ Object(객체) ]);` Array(배열) 안에 Object(객체) 를 두었다. 실행해 보면 사실 보여지는 것은,  
+   Object 객체의 요소중 text : (todo 내용) 와 checked : (완료여부 토글기능) 만 확인 할 수 있다. 그럼 id 는 뭘까??  
+   id 는 ToDoListItem 부분에서 더 알아보기로 하자. 위아래로 왔다갔다 해야 하겠다.  
+ - useState 의 요소로 Array(배열)을 사용 하지 않을 수도 있지만, ToDoList 기능에는 할일과 할일을 완료했을 때 체크 해주는 기능도  
+   함께 있어야 하다 보니 Object(객체) 로 만들어 Array(배열)의 요소로 만든 것이다.  
+     
+     
+   
+ - useState 의 값들로 id 값으로 보자면 3 번 까지 이미 들어가 있고 그 밑에 다른 nextId = useRef(4); 라고 선언 되었다.  
+   이미 id 값이 3 번까지 들어가 있기 때문에 다음에 들어오는 id 값은 4 번 으로 시작하겠다는 뜻이다. 일단은 여기까지만 알자.  
+     
+     
+2) useCallback
+ - useCallback 은 특정 메소드를 새로 만들지 않고 재사용하고 싶을때 사용하게 됩니다.
+ - 이 코드에서 설명하자면 ToDoInsert component 도 이해하고 있어야 하니 내용을 살펴보면 좋겠다.
+ - 여기서 useCallback 의 값으로 text 가 들어오게 된다. 그 내용은 ToDoInsert 의 return 부분부터 살펴보자면  
+   <input /> 내부에 할 일에 대한 내용을 입력하여 onChange Event 가 발생하게 되면 todo 라는 객체 안의 요소처럼  
+   id, text, checked 으로 todos 안에 `concat` 곧 합쳐지게 되는 것이다. 결국 객체가 합쳐지는 것이지만 요소가  
+   위 3가지로 되어 있다는 것을 기억하고 그리고 나서는 nextId 변수 안의 값은 1을 올리게 된다.  
+   ToDoInsert 에서 좀 더 설명하도록 하겠다.  
+     
+     
 이 내용은 추후에 공부하기로 하자
 - # ToDo List
 ## 1. Todo List 를 만들 때 생각 해야 되는 것
