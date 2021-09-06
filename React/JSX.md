@@ -20,6 +20,8 @@ export default App;
         
   );
 }
+
+export default App;
 // Failed to compile error
 ```
 그럼 어떻게 해줘야 하느냐
@@ -32,5 +34,7 @@ export default App;
     </div>
   );
 }
+
+export default App;
 ```
 이렇게 하면 된다.
