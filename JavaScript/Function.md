@@ -35,7 +35,18 @@
   
   const sum = add(2, 3);
   console.log(sum);
-// 5
+  // 5
+
+//----------------------------------------------------
+
+  const hello = (name) => {
+    console.log('Hello ' + name + '!');
+  };
+
+  hello('whyj');
+  // Hello whyj!
+
+//----------------------------------------------------  
   
   const getGrade = (score) => {
     if (score === 100) {
@@ -53,11 +64,11 @@
     } else {
         return 'F';
     }
-};
+  };
 
-const grade = getGrade(50);
-console.log(grade);
-// F
+  const grade = getGrade(50);
+  console.log(grade);
+  // F
 ```
  
  
