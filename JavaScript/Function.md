@@ -29,6 +29,14 @@
   - function expression (함수 표현식) 중에 Arrow Function (화살표 함수) 나 몇번 더 연습 해보자
       
   ```JavaScript
+  const add = (a, b) => {
+    return a + b;
+  };
+  
+  const sum = add(2, 3);
+  console.log(sum);
+// 5
+  
   const getGrade = (score) => {
     if (score === 100) {
         return 'A+';
