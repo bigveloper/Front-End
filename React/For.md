@@ -21,6 +21,8 @@ export default App;
 
 ```
 일반적인 JSX 문법으로 return 안에서는 for 문을 사용할 수 없다.
+그래서 아래와 같이 작성해 준다.  
+
 ```JavaScript
 import React from 'react';
 
