@@ -29,7 +29,27 @@
   - function expression (함수 표현식) 중에 Arrow Function (화살표 함수) 나 몇번 더 연습 해보자
       
   ```JavaScript
-    const arrow()=>{}
-  ```
+  const getGrade = (score) => {
+    if (score === 100) {
+        return 'A+';
+    } else if (score >= 90) {
+        return 'A';
+    } else if (score === 89) {
+        return 'B+';
+    } else if (score >= 80) {
+        return 'B';
+    } else if (score === 79) {
+        return 'D+';
+    } else if (score >= 70) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+};
+
+const grade = getGrade(50);
+console.log(grade);
+// F
+```
  
  
