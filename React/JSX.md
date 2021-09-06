@@ -1,6 +1,6 @@
 # JSX 란??
-- React 에서 생김새를 정의 할 때, 사용하는 문법이다. 얼핏보면 태그(<>)로 이루어진 HTML 같이 생겼지만  
-  실제로는 JavaScript 이다.
+- ## React 에서 생김새를 정의 할 때, 사용하는 문법이다. 얼핏보면 `태그(<>)로 이루어진` HTML 같이 생겼지만  
+  실제로는 `JavaScript` 이다.
 ```javascript
   return(
     <div className="App">
@@ -29,8 +29,8 @@ export default App;
 `javascript
   return(
     <div className="App">
-       <h1> 태그를 닫아줘 </h1>
-        <div> 닫아줘 제발</div>
+       <h1> 태그를 닫았군 </h1>
+        <div> 정말 고마워 </div>
     </div>
   );
 }
@@ -38,3 +38,19 @@ export default App;
 export default App;
 ```
 이렇게 하면 된다.
+
+- ## JSX 에 표현식 포함하기
+- JSX 의 `중괄호 {}`  안에서는 `유효한 모든 JavaScript 표현식`을 넣을 수 있다.
+```javascript
+const name = '호순'; 
+const elements = <h1>Hello, {name}<h1>;
+```
+  - JSX 도 표현식 이다.
+       - 컴파일이 끝나면, JSX 표현식이 정규 JavaScript 함수 호출이 되고 JavaScript 객체로 인식 된다.
+       - 즉, JSX 를 if 구문 및 for loop 안에 사용하고, 변수에 할당하고, 인자로서 받아들이고 함수로 부터 반환 할 수 있다.
+```javascript
+
+
+
+```
+
