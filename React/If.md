@@ -16,6 +16,23 @@ export default App;
 /// true 면 잘생겼다. 
 /// 여기서 false 혹은 0 을 넣어주면 else 가 실행된다.
 ```
-사실 if 문은 JSX 안에서 사용이 불가하다. 그리하여 사용하는 것이 `삼항 연산자` 이다.
+사실 if 문은 JSX 안에서 사용이 불가하다. 그리하여 사용하는 것이 `삼항 연산자` 이다. (전혀 사용 못하는 것은 아님..)
 
 # React JSX 에서 `삼항 연산자` 사용하기(=조건문)
+
+```JavaScript
+import "./App.css";
+
+function App() {
+    const name = "whyj";
+
+    return (
+        <div>{name === "whyj" ? <p> 잘생겼다. </p> : <p> 못생겼다. </p>}</div>
+    );
+}
+
+export default App;
+
+// 잘생겼다.
+```
+
