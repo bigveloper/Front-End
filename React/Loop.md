@@ -1,4 +1,38 @@
+# map() 을 사용해 보자
+```JavaScript
+import "./App.css";
+
+function App(){
+    const WeekArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    
+    const WeekMap = WeekArr.map((week) => {
+        return <span>{week + ' / '}</span>
+    });
+    
+    return(
+        <div>
+        {WeekMap}
+        </div>
+    );
+}
+
+export default App;
+```
+
+반환된 값으로는  
+`Mon / Tue / Wed / Thu / Fri / Sat / Sun /`
+가 잘 나왔다.
+
+일단은, 간단하게 선언 해보고 간단하게 반환 받았다.  
+  
+    
+    
+
+
 # React 에서 For 문 사용하기
+- for 문은 잘 사용하지 않는 것으로 알고 있지만, 혹 보게 될 일이 있을 수 있어 기록 해 둔다.  
+
+
 ```JavaScript
 import React from 'react';
 
@@ -51,3 +85,4 @@ export default App;
 반환된 값으로는  
 `Mon / Tue / Wed / Thu / Fri / Sat / Sun /`
 가 잘 나왔다.
+
