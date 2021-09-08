@@ -7,7 +7,7 @@
 
 ```HTML
  <form name="profile" action="/action_page.php" method="get" autocomplete="on">
-  <input type="text" name="id" />
+  <input type="text" name="id">
   <select>
    <option value="blue">
   </select>
@@ -20,7 +20,7 @@
   name : 서버로 전송되는 데이터 이름
   - text 입력란 `<input type="text">`
  ```HTML
- text: <input type:"text" name="id" value="기본값" />
+ text: <input type:"text" name="id" value="기본값">
  ```  
    
   - password 입력란(입력한 내용이 보이지 않음) `<input type="password">
@@ -80,5 +80,53 @@
 ```  
    
    
- 
- 
+ 2. <textarea> 태그
+  - <textarea> 여러 줄의 텍스트를 입력할 때
+```HTML
+<form>
+ <p> textarea : 
+  <textarea cols="50" rows="3"
+            placeholder="default">입력하세요.</textarea>
+ </p>
+</form>
+```  
+   
+   
+3. <select> 태그
+ - 드롭 다운 형식의 선택, 선택 항목은 option 으로
+```HTML
+<form>
+ <select name = "color">
+  <option value="서버에 전송될 값"> red </option>
+  <option value="blue"> blue </option>
+ </select>
+ <!-- 다중 선택 multiple 추가 -->
+ <select name = "color2" multiple>
+  <option value="green"> green </option>
+  <option value="pink"> pink </option>
+ </select>
+</form>
+```  
+   
+   
+4. <label> 태그
+ - control 의 제목이 그것의 이름표라는 것을 명시하기 위해 사용
+ - checkbox 나 radio 에서 값을 클릭해도 표시될 수 있게 할 수 있음  
+   (값이 radio의 label이라는 것을 표시해준다.)
+ - text 에서는 화면상에서 label 클릭하면 text 입력 창으로 커서가 간다.
+ ```HTML
+<form action=" ">
+ <p>
+  <label for ="name_txt"> text : </label>
+  <input id="name_txt" type="text" name="id" value="default"> 
+ </p>
+ <p>
+  <input id="color_pink1" type="radio" name="color" value="default">
+  <label for="color_pink1"> pink </label>
+  <input type="radio" name="color" value="default"> green
+ </p>
+</form>                                                      
+```  
+   
+   
+
