@@ -8,7 +8,7 @@
 <thead>   : 테이블의 헤더 영역을 지정
 <hbody>   : 테이블의 바디 영역을 지정
 ```
-위 내용을 가지고 만년달력을 작성 해 보겠다.
+## 위 내용을 가지고 만년달력을 작성 해 보겠다.
 
 ```HTML
 <table
@@ -81,7 +81,7 @@
      </tr>
   </tbody>
 ```
-`속성`들을 살펴보자
+## `속성`들을 살펴보자
 ```HTML
 align       : 정렬을 지정한다.(left, center, right)
 border      : 테두리 선의 두께를 지정한다.
@@ -93,3 +93,30 @@ height      : 세로길이(높이)를 지정한다.
 rawspan     : 지정한 값 만큼 행을 병합한다.(위아래로)
 colspan     : 지정한 값 만큼 열을 병합한다.(좌우로)
 ```
+## rawspan 과 colspan
+```HTML
+<table
+       border="1"
+       width="50%"
+       height="200"
+       cellspacing="1">
+ <tr align="center" bgcolor="white">
+  <td rawspan="2"> rawspan 사용 </td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr align="center" bgcolor="white">
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr> 
+ <tr align="center" bgcolor="white">
+  <td colspan="4"> colspan 사용 </td>
+       </tr>
+</table>
+```
+- `<table>` 을 사용하여 테이블을 만든다.
+- `<tr>` 태그를 사용하여서 하나의 행을 만든다.
+- `<tr>` 태그로 행을 만들었으면 그 안에 `<td>` 를 사용하여서 열을 나누어 준다.
+- `<td>` 의 개수는 모든 `<tr>` 에서 동일한 것이 좋다. 만약 값을 비워야 하면 `<td>` 로 열을 만들고 값을 넣지 않으면 된다.
