@@ -1,4 +1,4 @@
-# Button tag 
+# <button>...</button> tag 
 button 의 type 은 크게 3 종류로 나누어 진다.  
 종류로는 button / submit / reset 이 있다. 이 3 종류의 버튼 타입의 기능에 대하여 알아보자
 
