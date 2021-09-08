@@ -48,4 +48,37 @@
  <h4>radio</h4>
  <input type="radio" name="color" value="red"> 빨간색 <br>
  <input type="radio" name="color" value="blue" checked> 파란색
- ```
+ ```  
+   
+   
+- checkbox 다중선택 `<input type="checkbox">
+```HTML
+ <h4>radio</h4>
+ <input type="checkbox" name="color" value="red"> red <br>
+ <input type="checkbox" name="color" value="green" checked> green <br>
+ <input type="checkbox" name="color" value="pink" checked> pink <br>
+```  
+   
+   
+- file upload `<input type="file">`  
+ `method="post"` 일때만 가능하다.  
+ `enctype`: form 데이터를 서버로 제출할 때 데어티가 인코딩 된 방법을 명시 한다.  
+ `"multipart/form-data"`: 모든 문자를 인코딩하지 않음
+```HTML
+ <form action = "http://localhost/upload.php" method="post" enctype="mulipart/form-data">
+  <input type = "file" name="selected=file">
+  <input type = "submit">
+ </form>
+```  
+   
+   
+ - hidden 눈에 보이지 않는 정보를 서버쪽으로 보낼 때 사용 한다. `<input type="hidden">`
+```HTML
+ <input type = "hidden" name = "hide" value = "superstar">
+ 
+ <!-- superstar 를 서버로 전송 -->
+```  
+   
+   
+ 
+ 
