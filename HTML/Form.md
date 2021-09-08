@@ -1,4 +1,4 @@
-# <form ...>....</form> 태그 정리
+# <form></form> 태그 정리
  - form 은 컨트롤 요소(control elelment) 로 구성된다. `text`, `button`, `radio` 등이 `control` 이다.  
     - name :  form 의 이름, 서버로 보내질 때 이름의 값으로 데이터 전송
     - action : form 이 전송되는 url 또는 html 링크
@@ -23,7 +23,7 @@
  text: <input type:"text" name="id" value="기본값">
  ```  
    
-  - password 입력란(입력한 내용이 보이지 않음) `<input type="password">
+  - password 입력란(입력한 내용이 보이지 않음) `<input type="password">`
  ```HTML
  password: <input type="password" name="pwd" placeholder="PASSWORD">
  <!-- placeholder 는 기본적으로 input 안에서 내용을 보여준다. 여기서는 PASSWORD 를 보여준다.  -->
@@ -77,6 +77,7 @@
  <input type = "hidden" name = "hide" value = "superstar">
  
  <!-- superstar 를 서버로 전송 -->
+ 
 ```  
    
    
@@ -92,7 +93,7 @@
 ```  
    
    
- 3. <select> 태그  
+ 3. select 태그  
   - 드롭 다운 형식의 선택, 선택 항목은 option 으로 사용 한다.  
 ```HTML
 <form>  
@@ -107,9 +108,9 @@
  </select>  
 </form> 
 ```  
+</form>
    
-   
- 4. <label> 태그  
+ 4. label 태그  
   - control 의 제목이 그것의 이름표라는 것을 명시하기 위해 사용  
   - checkbox 나 radio 에서 값을 클릭해도 표시될 수 있게 할 수 있음    
     (값이 radio의 label이라는 것을 표시해준다.)  
