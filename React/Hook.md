@@ -39,8 +39,8 @@ function ExampleManyState(){
  const [city, setCity] = useState('London') // 런던 가보고 싶으니까 런던 을 넣었다. 문자니까 '' 감싸서
  
  // event
- const onFruit = e => setFruit(e.target.fruit);
- const onCity = e => setCity(e.target.city);
+ const onFruit = e => setFruit(e.target.value);
+ const onCity = e => setCity(e.target.value);
  
 // JSX
  return(
@@ -49,13 +49,15 @@ function ExampleManyState(){
  <button onClick={() => setAge(age + 1)}> 살고싶은만큼 Click </button>
  </hr>
  <p> 먹고싶은 과일은? </p>
- <input value = {fruit} onChange = {onFruit} />
+ <input value={fruit} onChange={onFruit} />
  </hr>
  <p> 가고싶은 도시는? </p>
- <input value = {city} onChange = {onCity} />
+ <input value={city} onChange={onCity} />
  </div>
  );
 }
 
 export default ExampleManyState;
 ```
+event 부분에 target의 value 로 변수를 그대로 (fruit 과 city) 넣어줬으나 에러는 나지 않았다.  
+그러나 target 은 input 을 가리키고 그 안의 값인 value 를 가져오기 위해서는 target.value 를 사용해 주는것이 맞다.
