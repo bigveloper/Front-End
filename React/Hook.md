@@ -22,9 +22,9 @@ return(
     <button onClick={() => setCount(count + 1)}> 
       Click Me
     </button>
-    // 클릭을 하면 위 setate 지역의 setCount 를 통해 count 에 +1 하는 명령을 수행한다.
   </div>
   );
 }
+// 클릭을 하면 위 setate 지역의 setCount 를 통해 count 에 +1 하는 명령을 수행한다. 
 ```
 
