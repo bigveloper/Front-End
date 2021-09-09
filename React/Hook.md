@@ -49,10 +49,10 @@ function ExampleManyState(){
  <button onClick={() => setAge(age + 1)}> 살고싶은만큼 Click </button>
  </hr>
  <p> 먹고싶은 과일은? </p>
- <input value = {fruit} Onchange = {onFruit} />
+ <input value = {fruit} onChange = {onFruit} />
  </hr>
  <p> 가고싶은 도시는? </p>
- <input value = {city} Onchange = {onCity} />
+ <input value = {city} onChange = {onCity} />
  </div>
  );
 }
