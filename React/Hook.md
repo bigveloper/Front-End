@@ -61,3 +61,61 @@ export default ExampleManyState;
 ```
 event 부분에 target의 value 로 변수를 그대로 (fruit 과 city) 넣어줬으나 에러는 나지 않았다.  
 그러나 target 은 input 을 가리키고 그 안의 값인 value 를 가져오기 위해서는 target.value 를 사용해 주는것이 맞다.
+
+여기서 옆그레이드 버젼을 한번 만들어봤다.
+- 나이를 올리는 것은 변경하지 않았다. 동일 하다.
+- 먹고싶은 과일이 생각 날때 마다 매번 추가할 수 있도록, 그리고 input 안에 값이 button 을 누르면서 초기화 되도록
+- 가고싶은 도시가 생각 날때 마다 매번 추가할 수 있도록, 그리고 input 안에 값이 button 을 누르면서 초기화 되도록
+  
+```JavaScript
+import { useState } from 'react';
+
+// component
+function ExampleManyState() {
+    // state
+    const [age, setAge] = useState(60); // 인생은 60부터, 60을 넣어줬다.
+    const [fruit, setFruit] = useState(''); // 딸이 포도를 좋아한다. 포도를 넣어줬다. 문자니까 '' 감싸서
+    const [fruitList, setFruitList] = useState([]);
+    const [city, setCity] = useState(''); // 런던 가보고 싶으니까 런던 을 넣었다. 문자니까 '' 감싸서
+    const [cityList, setCityList] = useState([]);
+    // event
+    const onFruit = (e) => setFruit(e.target.value);
+    const onFruitAdd = () => {
+        setFruitList((prevState) => [...prevState, fruit]);
+        setFruit('');
+    };
+    const onCity = (e) => setCity(e.target.value);
+    const onCityAdd = () => {
+        setCityList((prevState) => [...prevState, city]);
+        setCity('');
+    };
+
+    // JSX
+    return (
+        <div>
+            <p> 살고싶은 나이는 {age} </p>
+            <button onClick={() => setAge(age + 1)}>살고싶은만큼 Click</button>
+            <hr />
+
+            <p> 먹고싶은 과일은? </p>
+            <input value={fruit} onChange={onFruit} />
+            <button onClick={onFruitAdd}>과일추가</button>
+            {fruitList.map((item, index) => (
+                <div key={index}>{item}</div>
+            ))}
+            <hr />
+
+            <p> 가고싶은 도시는? </p>
+            <input value={city} onChange={onCity} />
+            <button onClick={onCityAdd}>도시추가</button>
+            {cityList.map((item, index) => (
+                <div key={index}>{item}</div>
+            ))}
+        </div>
+    );
+}
+
+export default ExampleManyState;
+
+```
+`해낼거다.`
