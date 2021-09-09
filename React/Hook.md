@@ -28,3 +28,34 @@ return(
 // 클릭을 하면 위 setate 지역의 setCount 를 통해 count 에 +1 하는 명령을 수행한다. 
 ```
 
+또한 `useState` 는 하나의 `component` 내에서 여러개의 `State Hook` 을 사용 가능하다.
+```JavaScript
+// component
+function ExampleManyState(){
+ 
+// state
+ const [age, setAge] = useState(60) // 인생은 60부터, 60을 넣어줬다.
+ const [fruit, setFruit] = useState('grape') // 딸이 포도를 좋아한다. 포도를 넣어줬다. 문자니까 '' 감싸서
+ const [city, setCity] = useState('London') // 런던 가보고 싶으니까 런던 을 넣었다. 문자니까 '' 감싸서
+ 
+ // event
+ const onFruit = e => setFruit(e.target.fruit);
+ const onCity = e => setCity(e.target.city);
+ 
+// JSX
+ return(
+ <div>
+ <p> 살고싶은 나이는 {age} </p>
+ <button onClick={() => setAge(age + 1)}> 살고싶은만큼 Click </button>
+ </hr>
+ <p> 먹고싶은 과일은? </p>
+ <input value = {fruit} Onchange = {onFruit} />
+ </hr>
+ <p> 가고싶은 도시는? </p>
+ <input value = {city} Onchange = {onCity} />
+ </div>
+ );
+}
+
+export default ExampleManyState;
+```
