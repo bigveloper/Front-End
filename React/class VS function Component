@@ -1,0 +1,49 @@
+# class Component
+- 기본적으로 class Component 와 function Component 가 하는 동작은 같다.  
+  그러나, class Component 가 function Component 가 더 많은 기능을 제공 해 주었다.  
+  그래서, 많이 사용 했지만 이제는 사실 사용하지 않는다. 기본형만 알아보자
+  
+```JavaScript
+import React, { Component } from 'react';
+class ClassComp extends React.Component {
+  state = {
+    // ...
+  };
+  render() {
+    return (
+      <div className="container">
+        //...
+      </div>
+    )
+  }
+}
+```
+state 를 정의하고, render 함수의 return 값에 따라 원하는 화면을 보여 준다.  
+  
+사실 이제 React 버전 16.8 에 새로 추가된 Hook 으로 인해 상황은 달라 졌다.  
+`Hook` 은 따로 설명 해 두었다. 
+  
+# function Component
+- React 버전 16.8 이 나오기 전까지는 비교적 간단한 동작을 하는데 사용 되었다.  
+  `state` 와 `lifecyle`에 정의된 함수를 사용하지 못했기 때문이다. 기본형을 알아보자  
+    
+```JavaScript
+function FuncComp(props) {
+  return (
+    <div classNmae="container">
+    // ...
+    </div>
+  );
+}
+```
+간단해 보인다. 그러나 Hook 을 이용해 function Component 에서도 class 처럼 여러가지 동작이 가능하다.  
+  
+## function Component 에 state 생성하기
+ - function Component 에서 생성하는 방법은 `useState` 라는 메소드를 사용한다. 중요하다!!  
+```JavaScript
+import { useState } from 'react'; // 가져다 써야지 안가지고 왔는데 어떻게 쓰나
+
+const [value, setValue] = useState(value);
+// useState(''); 로도 사용이 가능하다.
+```
+
