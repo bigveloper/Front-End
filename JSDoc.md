@@ -28,7 +28,7 @@ HTML의 block tag, inline tag와 비슷하게 주석 안에서 한 줄을 차지
 - <참고>  
 https://jsdoc.app/index.html  
   
-https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html  
+  https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html  
 
   
     
