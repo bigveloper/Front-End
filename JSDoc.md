@@ -1,4 +1,4 @@
-JSDoc
+<h1>JSDoc</h1>
 JSDoc이란 JavaScript 소스 코드에 대한 설명을 하기 위해 사용되는 마크업 언어임  
 HTML의 경우 태그는 꺽쇠 기호(<>)를 사용하여 태그를 표현하지만 JSDoc의 경우 @을 사용하여 태그를 표현함  
 JSDoc에서 지원하는 태그는 block tag와 inline tag로 나눠지는데요. 사용 문법이 약간 다름  
