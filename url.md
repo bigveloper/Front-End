@@ -29,11 +29,3 @@
   스크롤 하는데, 비디오나 오디오 문서에서, 브라우저는 앵커가 나타나는 시간을 찾으려 할 것이다. # 뒤에 오는 부분은 별 의미가 없다. 또한  
   fragment identifier(부분 식별자) 라고 알려져, 요청이 서버에 절대 보내지지 않는다.  
   
-  <h1>절대URL 와 상대URL</h1>
-  - 전체 url(이전에 사용한 것 과 같다)
-  `http://developer.mozilla.org/en-US/docs/Learn`
-  - 내포된 프로토콜
-  `//developer.mizilla.org/en-US/docs/Learn`
-  - 내포된 도메인명
-  `/en-US/docs/Learn
-  - 이것은 HTML 문서 내에서 절대 URL 을 위한 가장 흔한 방법이다.
